@@ -21,4 +21,6 @@ final darkTheme = ThemeData(
               color: Colors.white.withOpacity(0.6),
               fontWeight: FontWeight.w700,
               fontSize: 16),
-        ));
+        ),
+        useMaterial3: true,
+        );
