@@ -1,5 +1,6 @@
 import 'package:crypto_coins_list/repositories/crypto_coins/models/crypto_coin.dart';
 import 'package:dio/dio.dart';
+import 'package:intl/intl.dart';
 
 class CryptoCoinsRepository {
   Future<List<CryptoCoin>> getCoinsList() async {
@@ -12,7 +13,13 @@ class CryptoCoinsRepository {
       final usdData =
           (e.value as Map<String, dynamic>)['USD'] as Map<String, dynamic>;
       final priceInitial = usdData['PRICE'];
-      final price = double.parse(priceInitial.toStringAsFixed(4));
+      final priceNotSpaces = double.parse(priceInitial.toStringAsFixed(4));
+      final price = NumberFormat.currency(
+              locale: 'en_US',  
+              symbol: '',  
+              decimalDigits: 2, 
+              )
+          .format(priceNotSpaces);
       final imageURL = usdData['IMAGEURL'];
       return CryptoCoin(
         name: e.key,

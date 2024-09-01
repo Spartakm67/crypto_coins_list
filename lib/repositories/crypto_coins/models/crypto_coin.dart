@@ -6,6 +6,6 @@ class CryptoCoin {
   });
 
   final String name;
-  final double priceInUSD;
+  final String priceInUSD;
   final String imageURL;
 }
