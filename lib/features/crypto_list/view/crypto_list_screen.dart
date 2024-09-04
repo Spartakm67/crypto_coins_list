@@ -15,7 +15,6 @@ class CryptoListScreen extends StatefulWidget {
 }
 
 class _CryptoListScreenState extends State<CryptoListScreen> {
-  
   final _cryptoListBloc = CryptoListBloc(GetIt.I<AbstractCoinsRepository>());
 
   @override
@@ -46,10 +45,22 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
               },
             );
           }
+          if (state is CryptoListLoadingFailure) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(state.exception?.toString() ?? 'Exception'),
+                    const Text('Something get wrong! Please, try again later:)'),
+                ], 
+              ),  
+            );
+          }
           return const Center(child: CircularProgressIndicator());
         },
       ),
-     
+
       // floatingActionButton: FloatingActionButton(
       //     shape: const CircleBorder(),
       //     child: const Icon(Icons.download),
