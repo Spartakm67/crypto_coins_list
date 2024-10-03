@@ -4,13 +4,19 @@ class CryptoCoin extends Equatable{
   const CryptoCoin({
     required this.name,
     required this.priceInUSD,
-    required this.imageURL,
+    required this.imageUrl,
   });
 
   final String name;
   final String priceInUSD;
-  final String imageURL;
+  final String imageUrl;
   
   @override
-  List<Object?> get props => [name, priceInUSD, imageURL];
+  List<Object?> get props => [name, priceInUSD, imageUrl];
+
+  get hight24Hour => null;
+
+  get low24Hours => null;
+
+  // get details => null;
 }

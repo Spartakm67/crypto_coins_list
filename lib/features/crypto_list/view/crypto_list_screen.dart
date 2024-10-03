@@ -23,7 +23,6 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
 
   @override
   void initState() {
-    // _loadCryptoCoins();
     _cryptoListBloc.add(LoadCryptoList(completer: null));
     super.initState();
   }

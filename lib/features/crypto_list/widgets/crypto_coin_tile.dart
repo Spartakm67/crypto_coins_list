@@ -6,7 +6,6 @@ class CryptoCoinTile extends StatelessWidget {
   const CryptoCoinTile({
     super.key,
     required this.coin,
-    // required this.theme,
   });
 
   final CryptoCoin coin;
@@ -15,13 +14,8 @@ class CryptoCoinTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return ListTile(
-      leading: Image.network(coin.imageURL),
-      // leading: SvgPicture.asset(
-      //   'assets/svg/bitcoin_logo.svg',
-      //   height: 30,
-      //   width: 30,
-      // ),
-      title: Text(
+      leading: Image.network(coin.imageUrl),
+        title: Text(
         coin.name,
         style: theme.textTheme.bodyMedium,
       ),
