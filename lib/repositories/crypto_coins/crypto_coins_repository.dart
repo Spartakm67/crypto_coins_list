@@ -60,5 +60,6 @@ class CryptoCoinsRepository implements AbstractCoinsRepository {
       hight24Hour: hight24Hour,
       low24Hours: low24Hours,
     );
+
   }
 }

@@ -33,7 +33,11 @@ class _CryptoCoinScreenState extends State<CryptoCoinScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        iconTheme: const IconThemeData(
+          color: Colors.grey,
+        ),
+      ),
       body: BlocBuilder<CryptoCoinDetailsBloc, CryptoCoinDetailsState>(
         bloc: _coinDetailsBloc,
         builder: (context, state) {
