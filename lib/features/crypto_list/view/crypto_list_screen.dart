@@ -1,11 +1,11 @@
 import 'dart:async';
-
 import 'package:crypto_coins_list/features/crypto_list/bloc/crypto_list_bloc.dart';
 import 'package:crypto_coins_list/features/crypto_list/widgets/crypto_coin_tile.dart';
 import 'package:crypto_coins_list/repositories/crypto_coins/crypto_coins.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 
 class CryptoListScreen extends StatefulWidget {
   const CryptoListScreen({super.key, required this.title});
@@ -32,6 +32,21 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                      builder: (context) => TalkerScreen(
+                            talker: GetIt.I<Talker>(),
+                    ),
+                  ),
+                );
+              },
+              icon: const Icon(
+                Icons.document_scanner_outlined,
+              ))
+        ],
       ),
       body: RefreshIndicator(
         onRefresh: () async {
