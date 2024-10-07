@@ -65,7 +65,7 @@ class _CryptoCoinScreenState extends State<CryptoCoinScreen> {
                   BaseCard(
                     child: Center(
                       child: Text(
-                        '${coinDetails.priceInUSD} \$',
+                        '${coinDetails.formattedPriceInUSD} \$',
                         style: const TextStyle(
                           fontSize: 26,
                           fontWeight: FontWeight.w700,
@@ -78,12 +78,12 @@ class _CryptoCoinScreenState extends State<CryptoCoinScreen> {
                       children: [
                         _DataRow(
                           title: 'Hight 24 Hour',
-                          value: '${coinDetails.hight24Hour} \$',
+                          value: '${coinDetails.formattedHigh24Hour} \$',
                         ),
                         const SizedBox(height: 6),
                         _DataRow(
                           title: 'Low 24 Hour',
-                          value: '${coinDetails.low24Hours} \$',
+                          value: '${coinDetails.formattedLow24Hour} \$',
                         ),
                       ],
                     ),

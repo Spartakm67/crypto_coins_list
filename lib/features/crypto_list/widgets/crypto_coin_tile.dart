@@ -21,7 +21,7 @@ class CryptoCoinTile extends StatelessWidget {
         style: theme.textTheme.bodyMedium,
       ),
       subtitle: Text(
-        '${coinDetails.priceInUSD} \$',
+        '${coinDetails.formattedPriceInUSD} \$',
         style: theme.textTheme.labelSmall,
       ),
       trailing: const Icon(Icons.arrow_forward_ios),

@@ -1,6 +1,5 @@
 import 'package:crypto_coins_list/repositories/crypto_coins/crypto_coins.dart';
 import 'package:dio/dio.dart';
-import 'package:intl/intl.dart';
 
 class CryptoCoinsRepository implements AbstractCoinsRepository {
   CryptoCoinsRepository({
@@ -19,15 +18,7 @@ class CryptoCoinsRepository implements AbstractCoinsRepository {
       final usdData =
           (e.value as Map<String, dynamic>)['USD'] as Map<String, dynamic>;
       final details = CryptoCoinDetail.fromJson(usdData);
-      // final priceInitial = usdData['PRICE'];
-      // final priceNotSpaces = double.parse(priceInitial.toStringAsFixed(4));
-      // final price = NumberFormat.currency(
-      //   locale: 'en_US',
-      //   symbol: '',
-      //   decimalDigits: 2,
-      // ).format(priceNotSpaces);
-      // final imageUrl = usdData['IMAGEURL'];
-      return CryptoCoin(
+        return CryptoCoin(
         name: e.key,
         details: details,
       );
@@ -52,3 +43,4 @@ class CryptoCoinsRepository implements AbstractCoinsRepository {
     );
   }
 }
+

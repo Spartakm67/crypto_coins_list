@@ -1,7 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-
+import 'package:intl/intl.dart';
 part 'crypto_coin_details.g.dart';
+
 
 @JsonSerializable()
 class CryptoCoinDetail extends Equatable{
@@ -46,14 +47,34 @@ class CryptoCoinDetail extends Equatable{
   static DateTime _dateTimeFromJson(int milliseconds) =>
       DateTime.fromMillisecondsSinceEpoch(milliseconds);
 
+  String get formattedPriceInUSD => _formatPrice(priceInUSD);
+  String get formattedHigh24Hour => _formatPrice(hight24Hour);
+  String get formattedLow24Hour => _formatPrice(low24Hours);
+
+  String _formatPrice(double price) {
+        final decimalDigits = price < 1 ? 6 : 2;
+
+    return NumberFormat.currency(
+      locale: 'en_US',
+      symbol: '',
+      decimalDigits: decimalDigits,
+    ).format(price);
+  }
+
   @override
   List<Object?> get props => [
-    priceInUSD,
+    // priceInUSD,
+    // imageUrl,
+    // toSymbol,
+    // lastUpdate,
+    // hight24Hour,
+    // low24Hours,
+    formattedPriceInUSD,
     imageUrl,
     toSymbol,
     lastUpdate,
-    hight24Hour,
-    low24Hours,
+    formattedHigh24Hour,
+    formattedLow24Hour,
   ];
 }
 
