@@ -5,6 +5,8 @@ import 'package:equatable/equatable.dart';
 import 'package:get_it/get_it.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
+import '../../../../repositories/crypto_coins/models/crypto_coin.dart';
+
 part 'crypto_coin_details_event.dart';
 part 'crypto_coin_details_state.dart';
 
